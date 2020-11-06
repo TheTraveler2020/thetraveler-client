@@ -6,21 +6,33 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.21.5",
     "navi": "^0.14.0",
+    "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-bootstrap": "^1.4.0",
     "react-dom": "^16.13.1",
     "react-navi": "^0.14.4",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
-    "styled-components": "^5.2.0"
+    "react-scripts": "^4.0.0",
+    "styled-components": "^5.2.1"
   },
   "scripts": {
     "start": "BROWSER=none PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/"
   },
   "eslintConfig": {
     "extends": "react-app"
