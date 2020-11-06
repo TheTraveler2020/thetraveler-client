@@ -20,9 +20,7 @@ const propTypes = {
 };
 
 const ButtonWrapper = styled.button`
-  background: ${({ color, theme }) => theme.color[color]};
-  color: ${({ color, theme }) => theme.text[color]};
-  padding: ${(props) => BUTTON_SIZE[props.size].padding};
+  padding: ${props => BUTTON_SIZE[props.size].padding};
   font-size: 18px;
   margin: 0 auto 15px auto;
   display: block;

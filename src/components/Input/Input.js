@@ -11,7 +11,7 @@ const InputWrapper = styled.div`
     outline: none;
     border-radius: 0;
     border: 1px solid #b9b9b9 !important;
-    border-left-width: ${(props) => (props.leftIcon ? 0 : '1')}px !important;
+    border-left-width: ${props => (props.leftIcon ? 0 : '1')}px !important;
     background: #fff;
     border-radius: 0;
     -webkit-appearance: none;
