@@ -1,6 +1,5 @@
 import React from 'react';
-const LoginForm = props => {
-  console.log(props);
+const LoginForm = () => {
   return (
     //UI Login will be here!
     <div className="container"></div>
