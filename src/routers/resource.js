@@ -2,22 +2,27 @@ import React from 'react';
 import { route, withView, mount } from 'navi';
 import { View } from 'react-navi';
 
+import AdminContainer from 'role/admin/containers/AdminContainer';
+import GuiderContainer from 'role/guider/containers/GuiderContainer';
+import Homepage from 'containers/Homepage';
 import Login from 'containers/Login';
+import UserContainer from 'role/user/containers/UserContainer';
+import withAuth from './withAuth';
+import withNotAuth from './withNotAuth';
 import withRoles from './withRoles';
-
-import AdminHomepage from 'role/admin/containers/Homepage';
-import GuiderHomepage from 'role/guider/containers/Homepage';
-import UserHomepage from 'role/user/containers/Homepage';
+import Layout from 'containers/Layout';
 
 export const routes = {
-  '/login': ('/', route({ title: 'Login', view: <Login /> })),
+  '/login': withNotAuth('/', route({ title: 'Login', view: <Login /> })),
   '/admin': withRoles(
     'admin',
     '/admin',
     withView(
-      <View />,
+      <Layout>
+        <View />
+      </Layout>,
       mount({
-        '/homepage': route({ title: 'Admin Homepage', view: <AdminHomepage /> }),
+        '/admin_page': withAuth(route({ title: 'Admin Homepage', view: <AdminContainer /> })),
       }),
     ),
   ),
@@ -25,16 +30,22 @@ export const routes = {
     'guider',
     '/guider',
     withView(
-      <View />,
+      <Layout>
+        <View />
+      </Layout>,
       mount({
-        '/homepage': route({ title: 'Guider Homepage', view: <GuiderHomepage /> }),
+        '/guider_page': withAuth(route({ title: 'Guider Homepage', view: <GuiderContainer /> })),
       }),
     ),
   ),
   '/user': withView(
-    <View />,
+    <Layout>
+      <View />
+    </Layout>,
     mount({
-      '/homepage': route({ title: 'User Homepage', view: <UserHomepage /> }),
+      '/user_page': withAuth(route({ title: 'User Homepage', view: <UserContainer /> })),
     }),
   ),
+
+  '/': withAuth(route({ title: 'User Homepage', view: <Homepage /> })),
 };
