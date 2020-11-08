@@ -10,6 +10,7 @@ import UserContainer from 'role/user/containers/UserContainer';
 import withAuth from './withAuth';
 import withNotAuth from './withNotAuth';
 import withRoles from './withRoles';
+import Layout from 'containers/Layout';
 
 export const routes = {
   '/login': withNotAuth('/', route({ title: 'Login', view: <Login /> })),
@@ -17,7 +18,9 @@ export const routes = {
     'admin',
     '/admin',
     withView(
-      <View />,
+      <Layout>
+        <View />
+      </Layout>,
       mount({
         '/admin_page': withAuth(route({ title: 'Admin Homepage', view: <AdminContainer /> })),
       }),
@@ -27,14 +30,18 @@ export const routes = {
     'guider',
     '/guider',
     withView(
-      <View />,
+      <Layout>
+        <View />
+      </Layout>,
       mount({
         '/guider_page': withAuth(route({ title: 'Guider Homepage', view: <GuiderContainer /> })),
       }),
     ),
   ),
   '/user': withView(
-    <View />,
+    <Layout>
+      <View />
+    </Layout>,
     mount({
       '/user_page': withAuth(route({ title: 'User Homepage', view: <UserContainer /> })),
     }),

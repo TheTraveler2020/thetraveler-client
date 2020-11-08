@@ -3,7 +3,6 @@ import { Router, View } from 'react-navi';
 
 import { authService } from 'utils/auth.service';
 import routes from '../../routers';
-import Header from 'containers/Header';
 
 import './index.css';
 
@@ -18,7 +17,6 @@ const App = () => {
 
   return (
     <Router routes={routes} context={{ authService, currentUser }}>
-      <Header />
       <Suspense fallback={null}>
         <View />
       </Suspense>
