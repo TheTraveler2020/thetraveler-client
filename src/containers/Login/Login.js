@@ -18,11 +18,11 @@ const Login = () => {
     role => {
       switch (role) {
         case ADMIN:
-          return navigate('/admin/homepage');
+          return navigate('/admin/admin_page');
         case GUIDER:
-          return navigate('/guider/homepage');
+          return navigate('/guider/guider_page');
         default:
-          return navigate('/user/homepage');
+          return navigate('/user/user_page');
       }
     },
     [navigate],
